@@ -19,3 +19,18 @@ def aleatorio():
 
     return media
     
+
+def mediana(n,x):
+    i=0
+    lista =[]
+    while i<x:
+        numero = random.randint(0,n)
+        lista.append(numero)
+        i=i+1
+
+    sorted(lista)
+
+    if len(lista) % 2 == 1:
+        return lista[len(lista)//2]
+    else:
+        return (lista[len(lista)//2] + lista[(len(lista)//2) + 1])/2
