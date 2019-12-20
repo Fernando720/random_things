@@ -30,7 +30,7 @@ def mediana(n,x):
 
     sorted(lista)
 
-    if len(lista) % 2 == 1:
+    if (len(lista) % 2) == 1:
         return lista[len(lista)//2]
     else:
         return (lista[len(lista)//2] + lista[(len(lista)//2) + 1])/2
