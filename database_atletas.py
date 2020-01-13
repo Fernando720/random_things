@@ -49,8 +49,10 @@ CREATE TABLE Treino(
         
 cursor.execute("""
 CREATE TABLE Treinamento(
-    atleta_id INTEGER NOT NULL PRIMARY KEY,
-    treino_id INTEGER NOT NULL PRIMARY KEY
+    atletas_treinos INTEGER,
+    treinos_atletas INTEGER,
+    FOREIGN KEY(atletas_treinos) REFERENCES Atleta(atleta_id),
+    FOREIGN KEY(treinos_atletas) REFERENCES Treino(treino_id)
 );
 """)
 
