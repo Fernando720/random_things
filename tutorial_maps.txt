@@ -1,0 +1,15 @@
+Pra tu fazer isso no Android(salvar lugares sempre que houver necessidade), tu faz o seguinte:
+
+1. Abre o maps;
+2. Clica no menu sanduíche, vulgo 3 barrinhas;
+3. Clica em Seus Lugares;
+4. Clica em salvos;
+5. Para adicionar uma nova lista de lugares, clica no '+' no canto inferior direito da tela;
+6. Nomeie a lista. Ex: "Casas de veraneio". Clica em salvar;
+7. Para adicionar um lugar nesta lista, clica em editar;
+8. Novamente clica no '+' que vai aparecer no canto inferior direito da tela;
+9. Aí tu clica "escolher no mapa" e arrasta o alfinete pro lugar que se deseja salvar;
+10. Clica 'ok' (em 'compartilhe algo sobre este lugar, tu podes dizer de que lugar exato se trata). Por ex: "Casa de veraneio em Tamandaré";
+11. Salvar;
+
+Sempre que quiser adicionar mais lugares na mesma lista: repita os passos 1,2 e 3; clica na lista em que se deseja adicionar mais lugares; repita passos 7,8,9,10 e 11. Enfim, tu vai desenrolar. 
