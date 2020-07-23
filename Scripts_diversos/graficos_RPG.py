@@ -155,36 +155,62 @@ def plotting(tabela_dados):
     df = tabela_dados
     #criando figuras
     fig = plt.figure(1)
-    #fig2 = plt.figure(2)
 
-    #Specifies the geometry of the grid that a subplot can be placed in.
-    gs = gridspec.GridSpec(2,3,figure=fig)
-    #gs2 = gridspec.GridSpec(1,2,figure=fig2)
+    largura_barra = 0.3
 
-    #criando primeiro subplot (Dano causado)
+    '''Specifies the geometry of the grid that a subplot can be placed in.'''
+    gs = gridspec.GridSpec(1,3,figure=fig)
+
+
+    '''criando primeiro subplot (Dano causado)'''
     ax1 = fig.add_subplot(gs[0,0])
     y1 = list(df['dano causado'])
-    ax1.barh(df['Personagem'], y1, color='orange')
+    ax1.barh(df['Personagem'], y1, color='orange', height=largura_barra)
     plt.title('Dano causado por personagem')
     for i, v in enumerate(y1):
-        ax1.text(v - 3, i, str(v), color='black', fontweight='bold')
+        if v != 0:
+            ax1.text(v - 0.2*v, i, str(v), color='white', fontweight='bold')
 
-    #Criando os demais subplots (primeira linha os danos, segunda linha os demais)
+    '''Criando os demais subplots (primeira linha os danos, segunda linha os demais)'''
     ax2 = fig.add_subplot(gs[0,1])
-    ax2.barh(df['Personagem'], df['dano sofrido'],color='red')
+    #plt.figure(2)
+    y2 = list(df['dano sofrido'])
+
+
+    ax2.barh(df['Personagem'], y2,color='red', height=largura_barra)
     plt.title('Dano sofrido por personagem')
+    for i, v in enumerate(y2):
+        if v != 0:
+            ax2.text(v - 0.2*v, i, str(v), color='white', fontweight='bold')
 
+    #plt.figura(3)
     ax3 = fig.add_subplot(gs[0,2])
-    ax3.barh(df['Personagem'], df['dano automitigado'],color='gray')
+    y3 = list(df['dano automitigado'])
+    ax3.barh(df['Personagem'], y3,color='gray', height=largura_barra)
     plt.title('Dano automitigado por personagem')
+    for i, v in enumerate(y3):
+        if v != 0:
+            ax3.text(v - 0.2*v, i, str(v), color='black', fontweight='bold')
 
-    ax4 = fig.add_subplot(gs[1,0])
-    ax4.barh(df['Personagem'], df['cura realizada'],color='green')
+    fig2 = plt.figure(2)
+    gs2 = gridspec.GridSpec(1, 2, figure=fig2)
+    #plt.figure(4)
+    ax4 = fig2.add_subplot(gs2[0,0])
+    y4 = list(df['cura realizada'])
+    ax4.barh(df['Personagem'], y4,color='green', height=largura_barra)
     plt.title('Cura realizada por personagem')
+    for i, v in enumerate(y4):
+        if v != 0:
+            ax4.text(v - 0.2*v, i, str(v), color='white', fontweight='bold')
 
-    ax5 = fig.add_subplot(gs[1,2])
-    ax5.barh(df['Personagem'], df['controle causado'],color='blue')
-    plt.title('controle causado por personagem')
+    #plt.figure(5)
+    ax5 = fig2.add_subplot(gs2[0,1])
+    y5 = list(df['controle causado'])
+    ax5.barh(df['Personagem'], y5,color='blue', height=largura_barra)
+    plt.title('Controle causado por personagem')
+    for i, v in enumerate(y5):
+        if v != 0:
+            ax5.text(v - 0.2*v, i, str(v), color='white', fontweight='bold')
 
     plt.show()
 
