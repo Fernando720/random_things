@@ -5,9 +5,9 @@ from matplotlib import gridspec
 import pandas as pd
 
 global personagens     #deixando esta variável global por nenhum motivo aparente, mas acho que será importante (sei lá, tá dando no mesmo)
-#'Cinthria','Eduardo','Glar','Naeris','Torphin'
+#
 
-personagens = ['Arya','Astrid','Welby']
+personagens = ['Arya','Astrid','Welby','Cinthria', 'Eduardo', 'Glar', 'Naeris','Torphin']
 
 def adicionando_personagens():
 
@@ -169,7 +169,7 @@ def plotting(tabela_dados):
     plt.title('Dano causado por personagem')
     for i, v in enumerate(y1):
         if v != 0:
-            ax1.text(v - 0.2*v, i, str(v), color='white', fontweight='bold')
+            ax1.text(v - 0.2*v, i, str(v), color='black', fontweight='bold')
 
     '''Criando os demais subplots (primeira linha os danos, segunda linha os demais)'''
     ax2 = fig.add_subplot(gs[0,1])
@@ -181,7 +181,7 @@ def plotting(tabela_dados):
     plt.title('Dano sofrido por personagem')
     for i, v in enumerate(y2):
         if v != 0:
-            ax2.text(v - 0.2*v, i, str(v), color='white', fontweight='bold')
+            ax2.text(v - 0.2*v, i, str(v), color='black', fontweight='bold')
 
     #plt.figura(3)
     ax3 = fig.add_subplot(gs[0,2])
@@ -201,7 +201,7 @@ def plotting(tabela_dados):
     plt.title('Cura realizada por personagem')
     for i, v in enumerate(y4):
         if v != 0:
-            ax4.text(v - 0.2*v, i, str(v), color='white', fontweight='bold')
+            ax4.text(v - 0.2*v, i, str(v), color='black', fontweight='bold')
 
     #plt.figure(5)
     ax5 = fig2.add_subplot(gs2[0,1])
@@ -210,7 +210,7 @@ def plotting(tabela_dados):
     plt.title('Controle causado por personagem')
     for i, v in enumerate(y5):
         if v != 0:
-            ax5.text(v - 0.2*v, i, str(v), color='white', fontweight='bold')
+            ax5.text(v - 0.2*v, i, str(v), color='black', fontweight='bold')
 
     plt.show()
 
