@@ -20,6 +20,7 @@ class Calculator:
     def start(self):
         self._config_buttons()
         self._config_display()
+        self._config_display()
         self.root.mainloop()
 
     def _config_buttons(self):
@@ -38,15 +39,16 @@ class Calculator:
                     button.bind('<Button-1>', self.calculate)
     
     def _config_display(self):
-        ...
+        self.display.bind('<Return>', self.calculate)
+        #self.display.bind('<KP_Enter>', self.calculate)
 
     def _fix_text(self, text):
         #substitui tudo que não for 012345679+-/*^ para nada
-        text = re.sub(r'[^\d\.\/\*\-\+\^e]',r'',text,0)
+        text = re.sub(r'[^\d\.\/\*\-\+\(\)\^e]', r'', text, 0)
         #substitui sinais repetidos para apenas um sinal
-        text = re.sub(r'([\.\+\*\^])\1+',r'\1',text,0)
+        text = re.sub(r'([\.\+\*\^])\1+', r'\1', text, 0)
         #substitui () ou *() para nada
-        text = re.sub(r'\*\ ?\(\)','',text)
+        text = re.sub(r'\*\?\(\)', '', text)
 
         return text
 
@@ -54,13 +56,37 @@ class Calculator:
         self.display.delete(0,'end')
 
     def add_text_to_display(self, event=None):
-        self.display.insert('end',event.widget['text'])
+        self.display.insert('end', event.widget['text'])
     
-    def calculate(self,event=None):
+    def calculate(self, event=None):
         fixed_text = self._fix_text(self.display.get())
-        print(fixed_text)
+        equations = self._get_equations(fixed_text)
+        #print(equations)
 
-def make_root() -> tk.Tk:
+        try:
+            if len(equations) == 1:
+                result = eval(self._fix_text(equations[0]))
+
+            else:
+                result = eval(self._fix_text(equations[0]))
+                for equation in equations[1:]:
+                    result = math.pow(result.eval(self._fix_text(equation)))
+
+            self.display.delete(0, 'end')
+            self.display.insert('end', result)
+            self.display.config(text=f'{fixed_text} = {result}')
+            self.label.config(text='Conta realizada')
+
+        except OverflowError:
+            self.label.config(text="Não consegui realizar esta conta. Desculpe!")
+        except Exception as error:
+            print(error)
+            self.label.config(text='conta inválida')
+
+    def _get_equations(self,text):
+        return re.split('\^', text, 0)
+
+'''def make_root() -> tk.Tk:
     
     root =  tk.Tk()
 
@@ -132,7 +158,7 @@ def main():
     calculator.start()
 
 if __name__ == '__main__':
-    main()
-    
+    main() '''
+
 
 
