@@ -20,7 +20,7 @@ class Calculator:
     def start(self):
         self._config_buttons()
         self._config_display()
-        self._config_display()
+
         self.root.mainloop()
 
     def _config_buttons(self):
@@ -52,7 +52,7 @@ class Calculator:
 
         return text
 
-    def clear(self,event=None):
+    def clear(self, event=None):
         self.display.delete(0,'end')
 
     def add_text_to_display(self, event=None):
