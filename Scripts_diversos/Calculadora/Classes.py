@@ -77,6 +77,7 @@ class Calculator:
             self.display.config(text=f'{fixed_text} = {result}')
             self.label.config(text='Conta realizada')
 
+
         except OverflowError:
             self.label.config(text="Não consegui realizar esta conta. Desculpe!")
         except Exception as error:
